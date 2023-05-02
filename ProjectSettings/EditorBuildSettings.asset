@@ -4,5 +4,29 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MainScene.unity
+    guid: 019b7222ce6240441baf14bbbcec3dc3
+  - enabled: 1
+    path: Assets/Scenes/Lobby.unity
+    guid: f6dee34d25821d340b159038d8ddb80d
+  - enabled: 1
+    path: Assets/Scenes/Level1.unity
+    guid: f362993893a61b64aa103812c54d87a5
+  - enabled: 1
+    path: Assets/Scenes/Level2.unity
+    guid: 1d96e111341ef4b42b485acc5743a6e0
+  - enabled: 1
+    path: Assets/TanknarokSample/Scenes/MainScene.unity
+    guid: c1d29642babf7ca4aa05a23ae68468a9
+  - enabled: 1
+    path: Assets/TanknarokSample/Scenes/Lobby.unity
+    guid: e7073f19ee8574db19f8808196062ff8
+  - enabled: 1
+    path: Assets/TanknarokSample/Scenes/Level1.unity
+    guid: c8e8f95c091b64329b97fba535292c16
+  - enabled: 1
+    path: Assets/TanknarokSample/Scenes/Level2.unity
+    guid: 6e19821baef78417da7d17a921d05fcb
   m_configObjects: {}
