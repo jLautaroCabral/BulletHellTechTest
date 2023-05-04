@@ -3663,7 +3663,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShowHierarchyWindowOverlay: 1
   _lobby: 1
-  _levels: 0200000003000000
+  _levels: 03000000
   _currentLevel: {fileID: 0}
   _transitionEffect: {fileID: 825814042}
   _audioEmitter: {fileID: 1353448201}
@@ -5820,6 +5820,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2652913063199298842, guid: 14e619ae6d6c15048a605c22484e77d4, type: 3}
+      propertyPath: bounds.z
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 2652913064384595572, guid: 14e619ae6d6c15048a605c22484e77d4, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -5835,6 +5839,18 @@ PrefabInstance:
     - target: {fileID: 2652913064384595573, guid: 14e619ae6d6c15048a605c22484e77d4, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2652913064384595574, guid: 14e619ae6d6c15048a605c22484e77d4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.8449734
+      objectReference: {fileID: 0}
+    - target: {fileID: 2652913064384595574, guid: 14e619ae6d6c15048a605c22484e77d4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.53480834
+      objectReference: {fileID: 0}
+    - target: {fileID: 2652913064384595574, guid: 14e619ae6d6c15048a605c22484e77d4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 64.662
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14e619ae6d6c15048a605c22484e77d4, type: 3}

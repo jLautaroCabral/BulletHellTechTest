@@ -2,14 +2,15 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 6
+  serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: mfx_forceField
   m_Shader: {fileID: 4800000, guid: 302808f0b529a0a458b44578b6a190c7, type: 3}
-  m_ShaderKeywords: 
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -41,7 +42,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: c77eb976d4dedf44c8595c0d12ed7660, type: 3}
-        m_Scale: {x: 1, y: 1}
+        m_Scale: {x: 2, y: 0}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
@@ -61,14 +62,14 @@ Material:
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _EmissionIntensity: 1
+    - _EmissionIntensity: 1.4
     - _FallOffStrength: 1.1
     - _FallOffYOffset: 0
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _IntersectBoost: 1
-    - _MaxDistance: 4
+    - _MaxDistance: 8
     - _Metallic: 0
     - _MinStrength: 0
     - _Mode: 0
@@ -90,5 +91,5 @@ Material:
     - _PositionPLAYER2: {r: 0, g: 0, b: 0, a: 0}
     - _PositionPLAYER3: {r: 0, g: 0, b: 0, a: 0}
     - _PositionPLAYER4: {r: 0, g: 0, b: 0, a: 0}
-    - _TintColor: {r: 1, g: 0.4627451, b: 0, a: 1}
+    - _TintColor: {r: 0, g: 0.801178, b: 1, a: 1}
   m_BuildTextureStacks: []

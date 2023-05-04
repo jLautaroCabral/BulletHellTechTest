@@ -11,7 +11,9 @@ namespace FusionExamples.Tanknarok
 		private Vector3 _offset;
 		private Vector3 _averageTarget;
 
-		[Header("Camera Settings")] private float cameraTiltAngle = 55f;
+		[Header("Camera Settings")]
+		[SerializeField]
+		private float cameraTiltAngle = 55f;
 
 		private float _longestDistance;
 		private float _maxDist = 64f;
