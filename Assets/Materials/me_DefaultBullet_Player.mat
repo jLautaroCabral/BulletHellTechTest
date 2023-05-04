@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: me_DefaultBullet
+  m_Name: me_DefaultBullet_Player
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ValidKeywords:
   - _EMISSION
@@ -78,6 +78,6 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.85490197, g: 0.043137267, b: 0.113698006, a: 1}
-    - _EmissionColor: {r: 11.984314, g: 0, b: 0.7529412, a: 1}
+    - _Color: {r: 0.088691995, g: 0.0037023122, b: 0.9811321, a: 1}
+    - _EmissionColor: {r: 0, g: 3.1737492, b: 16.000006, a: 1}
   m_BuildTextureStacks: []

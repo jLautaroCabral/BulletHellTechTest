@@ -2296,7 +2296,7 @@ GameObject:
   m_Component:
   - component: {fileID: 911850121291116296}
   - component: {fileID: 5895164622560852221}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: CCCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2466,7 +2466,7 @@ GameObject:
   - component: {fileID: 8616232291554802440}
   - component: {fileID: 1723606642065551448}
   - component: {fileID: 3407055641847980225}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: PlayerTankButBetter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3863,6 +3863,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: weapon_primary_main
       objectReference: {fileID: 0}
+    - target: {fileID: 8904131417722953992, guid: 86bd09311ff04004d9a475344b051bae, type: 3}
+      propertyPath: _projectilePrefab
+      value: 
+      objectReference: {fileID: 3844518902735432244, guid: d053a1c5d6330704eb085a62019504d3, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86bd09311ff04004d9a475344b051bae, type: 3}
 --- !u!114 &2623805786298927061 stripped
