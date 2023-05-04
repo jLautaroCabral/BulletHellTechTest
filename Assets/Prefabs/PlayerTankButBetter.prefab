@@ -2296,7 +2296,7 @@ GameObject:
   m_Component:
   - component: {fileID: 911850121291116296}
   - component: {fileID: 5895164622560852221}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CCCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2456,17 +2456,17 @@ GameObject:
   m_Component:
   - component: {fileID: 7911653039066033918}
   - component: {fileID: 694125818870963258}
+  - component: {fileID: 868463730390139289}
   - component: {fileID: -3098922383743760179}
   - component: {fileID: 6203864925880487117}
-  - component: {fileID: 868463730390139289}
-  - component: {fileID: 4937990569053503600}
-  - component: {fileID: 6951747966731050368}
   - component: {fileID: 5077257200377314410}
-  - component: {fileID: 2039004788954265569}
-  - component: {fileID: 8616232291554802440}
   - component: {fileID: 1723606642065551448}
   - component: {fileID: 3407055641847980225}
-  m_Layer: 0
+  - component: {fileID: 4937990569053503600}
+  - component: {fileID: 6951747966731050368}
+  - component: {fileID: 2039004788954265569}
+  - component: {fileID: 8616232291554802440}
+  m_Layer: 6
   m_Name: PlayerTankButBetter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2514,13 +2514,29 @@ MonoBehaviour:
     RawGuidValue: ca472152ec8f37a4f9a7b0a86455e502
   NestedObjects: []
   NetworkedBehaviours:
+  - {fileID: 868463730390139289}
   - {fileID: -3098922383743760179}
   - {fileID: 6203864925880487117}
-  - {fileID: 868463730390139289}
-  - {fileID: 4937990569053503600}
   - {fileID: 3407055641847980225}
+  - {fileID: 4937990569053503600}
   - {fileID: 2623805786298927061}
   SimulationBehaviours: []
+--- !u!114 &868463730390139289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7917003752575662290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e44e7ccff2ad78c458ff382a1227770d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interpolationDataSource: 0
+  _mouseRayMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!114 &-3098922383743760179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2584,7 +2600,7 @@ MonoBehaviour:
   _selectedSecondaryWeapon: 0
   _primaryAmmo: 0
   _secondaryAmmo: 0
---- !u!114 &868463730390139289
+--- !u!114 &5077257200377314410
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2593,13 +2609,78 @@ MonoBehaviour:
   m_GameObject: {fileID: 7917003752575662290}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e44e7ccff2ad78c458ff382a1227770d, type: 3}
+  m_Script: {fileID: 11500000, guid: 8fa18358b88567142a3f9c8cf6032cf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameMaxHealth: 100
+  _drivingDustParent: {fileID: 8201625898692703910}
+  _damageParticleParent: {fileID: 9046562366854110299}
+  _tankBotVisual: {fileID: 3486993630297661599}
+  _tankTopVisual: {fileID: 3263545308177411994}
+  _flashTime: 0.2
+  _damageSteps:
+  - {fileID: 11400000, guid: 7186702ce71f271429fc733858f31195, type: 2}
+  - {fileID: 11400000, guid: b90147377a226fe46804ae64cc17610a, type: 2}
+  - {fileID: 11400000, guid: 39d7848ac04ac2d42b6a2284b7e8c26e, type: 2}
+  - {fileID: 11400000, guid: 7c305fc34e3542a4ab7cf4941b440b4b, type: 2}
+  - {fileID: 11400000, guid: fcb28cf80819fd846b83e1a608b0095f, type: 2}
+  _damageSnd: {fileID: 11400000, guid: 2e984c74b9f232843a87d2fc9ace1a84, type: 2}
+  _explosionSnd: {fileID: 11400000, guid: 19dc1f503dba3f5439321de967b260b8, type: 2}
+  _audioEmitter: {fileID: 8616232291554802440}
+--- !u!143 &1723606642065551448
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7917003752575662290}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 1
+  m_Radius: 1
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &3407055641847980225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7917003752575662290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 378411a89480da345945c2f888327a2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _interpolationDataSource: 0
-  _mouseRayMask:
-    serializedVersion: 2
-    m_Bits: 64
+  InterpolationSpace: 0
+  InterpolationTarget: {fileID: 7933785314457126569}
+  InterpolateErrorCorrection: 1
+  InterpolatedErrorCorrectionSettings:
+    MinRate: 3.3
+    MaxRate: 10
+    PosBlendStart: 0.25
+    PosBlendEnd: 1
+    PosMinCorrection: 0.025
+    PosTeleportDistance: 2
+    RotBlendStart: 0.1
+    RotBlendEnd: 0.5
+    RotTeleportRadians: 1.5
+  UseLegacySharedModeInterpolation: 0
+  TargetInterpolationDelay: 0.03
+  gravity: -80
+  jumpImpulse: 30
+  acceleration: 100
+  braking: 7
+  maxSpeed: 13
+  rotationSpeed: 15
+  _IsGrounded: 0
+  _Velocity: {x: 0, y: 0, z: 0}
 --- !u!114 &4937990569053503600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2637,33 +2718,6 @@ MonoBehaviour:
   Offset: {x: 0, y: 1.32, z: 0}
   Root: {fileID: 4937990569053503600}
   GizmosColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
---- !u!114 &5077257200377314410
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7917003752575662290}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8fa18358b88567142a3f9c8cf6032cf5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _gameMaxHealth: 100
-  _drivingDustParent: {fileID: 8201625898692703910}
-  _damageParticleParent: {fileID: 9046562366854110299}
-  _tankBotVisual: {fileID: 3486993630297661599}
-  _tankTopVisual: {fileID: 3263545308177411994}
-  _flashTime: 0.2
-  _damageSteps:
-  - {fileID: 11400000, guid: 7186702ce71f271429fc733858f31195, type: 2}
-  - {fileID: 11400000, guid: b90147377a226fe46804ae64cc17610a, type: 2}
-  - {fileID: 11400000, guid: 39d7848ac04ac2d42b6a2284b7e8c26e, type: 2}
-  - {fileID: 11400000, guid: 7c305fc34e3542a4ab7cf4941b440b4b, type: 2}
-  - {fileID: 11400000, guid: fcb28cf80819fd846b83e1a608b0095f, type: 2}
-  _damageSnd: {fileID: 11400000, guid: 2e984c74b9f232843a87d2fc9ace1a84, type: 2}
-  _explosionSnd: {fileID: 11400000, guid: 19dc1f503dba3f5439321de967b260b8, type: 2}
-  _audioEmitter: {fileID: 8616232291554802440}
 --- !u!82 &2039004788954265569
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2775,60 +2829,6 @@ MonoBehaviour:
   startAction: 2
   stopAction: 2
   audioClip: {fileID: 0}
---- !u!143 &1723606642065551448
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7917003752575662290}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Height: 1
-  m_Radius: 1
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &3407055641847980225
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7917003752575662290}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 378411a89480da345945c2f888327a2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _interpolationDataSource: 0
-  InterpolationSpace: 0
-  InterpolationTarget: {fileID: 7933785314457126569}
-  InterpolateErrorCorrection: 1
-  InterpolatedErrorCorrectionSettings:
-    MinRate: 3.3
-    MaxRate: 10
-    PosBlendStart: 0.25
-    PosBlendEnd: 1
-    PosMinCorrection: 0.025
-    PosTeleportDistance: 2
-    RotBlendStart: 0.1
-    RotBlendEnd: 0.5
-    RotTeleportRadians: 1.5
-  UseLegacySharedModeInterpolation: 0
-  TargetInterpolationDelay: 0.03
-  gravity: -80
-  jumpImpulse: 30
-  acceleration: 100
-  braking: 7
-  maxSpeed: 13
-  rotationSpeed: 15
-  _IsGrounded: 0
-  _Velocity: {x: 0, y: 0, z: 0}
 --- !u!1 &7982711464514285561
 GameObject:
   m_ObjectHideFlags: 0

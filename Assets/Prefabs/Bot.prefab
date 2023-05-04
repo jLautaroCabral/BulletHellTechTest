@@ -1678,7 +1678,7 @@ GameObject:
   m_Component:
   - component: {fileID: 911850121291116296}
   - component: {fileID: 5895164622560852221}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CCCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1846,7 +1846,8 @@ GameObject:
   - component: {fileID: 1764107500}
   - component: {fileID: 1764107498}
   - component: {fileID: 1764107499}
-  m_Layer: 0
+  - component: {fileID: -3539836920427371163}
+  m_Layer: 7
   m_Name: Bot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1896,6 +1897,7 @@ MonoBehaviour:
   NetworkedBehaviours:
   - {fileID: 4937990569053503600}
   - {fileID: 4436620232775128287}
+  - {fileID: -3539836920427371163}
   - {fileID: 2623805786298927061}
   - {fileID: 5578811114393639228}
   SimulationBehaviours: []
@@ -2128,6 +2130,34 @@ MonoBehaviour:
   startAction: 2
   stopAction: 2
   audioClip: {fileID: 0}
+--- !u!114 &-3539836920427371163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7917003752575662290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 158639473, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interpolationDataSource: 0
+  InterpolationSpace: 0
+  InterpolationTarget: {fileID: 7933785314457126569}
+  InterpolateErrorCorrection: 1
+  InterpolatedErrorCorrectionSettings:
+    MinRate: 3.3
+    MaxRate: 10
+    PosBlendStart: 0.25
+    PosBlendEnd: 1
+    PosMinCorrection: 0.025
+    PosTeleportDistance: 2
+    RotBlendStart: 0.1
+    RotBlendEnd: 0.5
+    RotTeleportRadians: 1.5
+  UseLegacySharedModeInterpolation: 0
+  TargetInterpolationDelay: 0.03
 --- !u!1 &7982711464514285561
 GameObject:
   m_ObjectHideFlags: 0
