@@ -143,7 +143,7 @@ MonoBehaviour:
   _bulletSettings:
     hitMask:
       serializedVersion: 2
-      m_Bits: 1
+      m_Bits: 129
     areaRadius: 0.5
     areaImpulse: 40
     areaDamage: 35
