@@ -24,7 +24,6 @@ public class TankBot : NetworkBehaviour, ICanTakeDamage
     [SerializeField]
     private Weapon[] _weapons;
 
-
     private void OnDrawGizmos()
     {
         //Vector3 boundsOffset = this.boundsOffset + (new Vector3(0, 0, boundsMovementMax));
@@ -38,6 +37,9 @@ public class TankBot : NetworkBehaviour, ICanTakeDamage
 
     public override void Spawned()
     {
+        if (!Object.HasStateAuthority)
+            return;
+        
         navAgent.SetDestination(Vector3.zero);
     }
 
