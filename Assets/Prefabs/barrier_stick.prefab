@@ -426,7 +426,7 @@ GameObject:
   - component: {fileID: 2674874011480502219}
   - component: {fileID: 1321084666659439675}
   m_Layer: 0
-  m_Name: Stick
+  m_Name: barrier_stick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
