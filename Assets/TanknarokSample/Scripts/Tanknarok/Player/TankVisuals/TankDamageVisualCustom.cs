@@ -44,7 +44,6 @@ public class TankDamageVisualCustom : MonoBehaviour
     public void OnDeath()
     {
     	_audioEmitter.PlayOneShot(_explosionSnd);
-    	CheckHealth(0);
     }
     
     public void OnDamaged(float damage, bool isDead)
@@ -57,31 +56,7 @@ public class TankDamageVisualCustom : MonoBehaviour
     	}
     }
     
-    private void OnDestroy()
-    {
-    	//if (_damageParticleParent != null)
-    		//Destroy(_damageParticleParent.gameObject);
-    }
 
-    public void CheckHealth(int life)
-    {
-    	//Check if health has changed
-    	if (HealthHasChanged(life))
-    	{
-    	}
-    }
-
-    //Check if the health has changed and return the answer - also sets previous health to current health for later use
-    bool HealthHasChanged(int life)
-    {
-    	if (_previousHealth != life)
-    	{
-    		_previousHealth = life;
-    		return true;
-    	}
-
-    	return false;
-    }
     
     //Calculate an index based on the value
     int CalculateIndex(int max, float value)

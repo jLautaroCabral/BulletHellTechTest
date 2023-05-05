@@ -26,7 +26,7 @@ namespace FusionExamples.Tanknarok
 			bool changed = _previousState != _direction;
 			_previousState = _direction;
 			_target = followPlayer.transform;
-			_readyText.color = followPlayer.playerMaterial.GetColor("_SilhouetteColor");
+			_readyText.color = followPlayer.playerPrimary.GetColor("_SilhouetteColor");
 			return changed;
 		}
 

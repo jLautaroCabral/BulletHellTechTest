@@ -16,7 +16,7 @@ namespace FusionExamples.Tanknarok
 		[SerializeField] private MeshFilter _tankTopVisual;
 
 		private bool _active = false;
-		private Material _damageMaterial;
+		private PlayerMaterialsSO _damageMaterials;
 		[SerializeField] private float _flashTime = 0.1f;
 
 		[Header("Damage Steps")] [SerializeField]
@@ -37,9 +37,9 @@ namespace FusionExamples.Tanknarok
 		[SerializeField] private AudioClipData _explosionSnd;
 		[SerializeField] private AudioEmitter _audioEmitter;
 
-		public void Initialize(Material playerMaterial)
+		public void Initialize(PlayerMaterialsSO playerMaterial)
 		{
-			_damageMaterial = playerMaterial;
+			_damageMaterials = playerMaterial;
 
 			_damageParticleParent.parent = transform.parent;
 
@@ -73,9 +73,10 @@ namespace FusionExamples.Tanknarok
 
 		private void OnDisable()
 		{
-			if (_damageMaterial != null && _active)
+			if (_damageMaterials != null && _active)
 			{
-				_damageMaterial.SetFloat("_Transition", 0f);
+				_damageMaterials.primaryMaterial.SetFloat("_Transition", 0f);
+				_damageMaterials.secundaryMaterial.SetFloat("_Transition", 0f);
 			}
 		}
 
@@ -90,12 +91,12 @@ namespace FusionExamples.Tanknarok
 				{
 					//Let all particle effects from this tank use the same base material to prevent multiple instances
 					ParticleSystemRenderer partRenderer = child.GetComponent<ParticleSystemRenderer>();
-					if (_damageMaterial == null)
+					if (_damageMaterials.primaryMaterial == null)
 					{
-						_damageMaterial = new Material(partRenderer.material);
+						_damageMaterials.primaryMaterial = new Material(partRenderer.material);
 					}
 
-					partRenderer.material = _damageMaterial; //Apply material 
+					partRenderer.material = _damageMaterials.primaryMaterial; //Apply material 
 				}
 			}
 
@@ -221,7 +222,7 @@ namespace FusionExamples.Tanknarok
 					if (debrisMaterial == null)
 					{
 						debrisMaterial = new Material(meshRenderer.material);
-						debrisMaterial.mainTexture = _damageMaterial.mainTexture;
+						debrisMaterial.mainTexture = _damageMaterials.primaryMaterial.mainTexture;
 					}
 
 					meshRenderer.material = debrisMaterial;
@@ -234,7 +235,7 @@ namespace FusionExamples.Tanknarok
 
 		public void OnDamaged(float damage, bool isDead)
 		{
-			if (!isDead && _damageMaterial != null && _active)
+			if (!isDead && _damageMaterials.primaryMaterial != null && _active)
 			{
 				StartCoroutine(Flash());
 				_audioEmitter.PlayOneShot(_damageSnd);
@@ -249,9 +250,11 @@ namespace FusionExamples.Tanknarok
 
 		IEnumerator Flash()
 		{
-			_damageMaterial.SetFloat("_Transition", 1f);
+			_damageMaterials.primaryMaterial.SetFloat("_Transition", 1f);
+			_damageMaterials.secundaryMaterial.SetFloat("_Transition", 1f);
 			yield return new WaitForSeconds(_flashTime);
-			_damageMaterial.SetFloat("_Transition", 0f);
+			_damageMaterials.primaryMaterial.SetFloat("_Transition", 0f);
+			_damageMaterials.secundaryMaterial.SetFloat("_Transition", 0f);
 		}
 
 		public void CleanUpDebris()

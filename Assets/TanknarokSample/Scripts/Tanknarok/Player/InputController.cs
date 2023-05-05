@@ -56,7 +56,7 @@ namespace FusionExamples.Tanknarok
 		/// <param name="input">The target input handler that we'll pass our data to</param>
 		public void OnInput(NetworkRunner runner, NetworkInput input)
 		{
-			if (_player!=null && _player.Object!=null && _player.state == Player.State.Active && fetchInput)
+			if (_player!=null && _player.Object!=null && _player.UnitState == UnitState.Active && fetchInput)
 			{
 				// Fill networked input struct with input data
 

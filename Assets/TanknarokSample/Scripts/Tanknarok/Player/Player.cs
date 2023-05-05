@@ -2,14 +2,24 @@ using System.Collections;
 using System.Threading.Tasks;
 using Fusion;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace FusionExamples.Tanknarok
 {
+	public enum UnitState
+	{
+		New = 0,
+		Despawned = 1,
+		Spawning = 2,
+		Active = 3,
+		Dead = 4
+	}
+	
 	/// <summary>
 	/// The Player class represent the players avatar - in this case the Tank.
 	/// </summary>
 	[RequireComponent(typeof(NetworkCharacterControllerPrototype))]
-	public class Player : NetworkBehaviour, ICanTakeDamage
+	public class Player : NetworkBehaviour, ICanTakeDamage, ITankUnit
 	{
 		public const byte MAX_HEALTH = 100;
 
@@ -17,7 +27,7 @@ namespace FusionExamples.Tanknarok
 		[SerializeField] private Transform _hull;
 		[SerializeField] private Transform _turret;
 		[SerializeField] private Transform _visualParent;
-		[SerializeField] private Material[] _playerMaterials;
+		[SerializeField] private PlayerMaterialsSO[] _playerPossibleMaterials;
 		[SerializeField] private TankTeleportInEffect _teleportIn;
 		[SerializeField] private TankTeleportOutEffect _teleportOut;
 
@@ -30,7 +40,7 @@ namespace FusionExamples.Tanknarok
 		[SerializeField] private WeaponManager weaponManager;
 		
 		[Networked(OnChanged = nameof(OnStateChanged))]
-		public State state { get; set; }
+		public UnitState UnitState { get; set; }
 
 		[Networked]
 		public byte life { get; set; }
@@ -61,21 +71,15 @@ namespace FusionExamples.Tanknarok
 
 		public static Player local { get; set; }
 
-		public enum State
-		{
-			New,
-			Despawned,
-			Spawning,
-			Active,
-			Dead
-		}
+		
 
-		public bool isActivated => (gameObject.activeInHierarchy && (state == State.Active || state == State.Spawning));
-		public bool isDead => state == State.Dead;
-		public bool isRespawningDone => state == State.Spawning && respawnTimer.Expired(Runner);
+		public bool isActivated => (gameObject.activeInHierarchy && (UnitState == UnitState.Active || UnitState == UnitState.Spawning));
+		public bool isDead => UnitState == UnitState.Dead;
+		public bool isRespawningDone => UnitState == UnitState.Spawning && respawnTimer.Expired(Runner);
 
-		public Material playerMaterial { get; set; }
-		public Color playerColor => playerMaterial.GetColor("_EnergyColor");
+		public PlayerMaterialsSO playerMaterials { get; set; }
+		public Material playerPrimary { get; set; }
+		public Color playerColor => playerPrimary.GetColor("_EnergyColor");
 		public WeaponManager shooter => weaponManager;
 
 		public int playerID { get; private set; }
@@ -130,7 +134,7 @@ namespace FusionExamples.Tanknarok
 		
 		public void InitNetworkState(byte maxLives)
 		{
-			state = State.New;
+			UnitState = UnitState.New;
 			lives = maxLives;
 			life = MAX_HEALTH;
 			score = 0;
@@ -152,7 +156,7 @@ namespace FusionExamples.Tanknarok
 			_teleportOut.Initialize(this);
 
 			_damageVisuals = GetComponent<TankDamageVisual>();
-			_damageVisuals.Initialize(playerMaterial);
+			_damageVisuals.Initialize(playerMaterials);
 
 			PlayerManager.AddPlayer(this);
 			
@@ -193,9 +197,9 @@ namespace FusionExamples.Tanknarok
 		/// </summary>
 		public override void Render()
 		{
-			_visualParent.gameObject.SetActive(state == State.Active);
-			_collider.enabled = state != State.Dead;
-			_hitBoxRoot.HitboxRootActive = state == State.Active;
+			_visualParent.gameObject.SetActive(UnitState == UnitState.Active);
+			_collider.enabled = UnitState != UnitState.Dead;
+			_hitBoxRoot.HitboxRootActive = UnitState == UnitState.Active;
 			_damageVisuals.CheckHealth(life);
 
 			// Add a little visual-only movement to the mesh
@@ -207,11 +211,12 @@ namespace FusionExamples.Tanknarok
 
 		private void SetMaterial()
 		{
-			playerMaterial = Instantiate(_playerMaterials[playerID]);
+			playerPrimary = Instantiate(_playerPossibleMaterials[playerID].primaryMaterial);
+			playerMaterials = _playerPossibleMaterials[playerID];
 			TankPartMesh[] tankParts = GetComponentsInChildren<TankPartMesh>();
 			foreach (TankPartMesh part in tankParts)
 			{
-				part.SetMaterial(playerMaterial);
+				part.SetMaterial(playerMaterials);
 			}
 		}
 
@@ -300,12 +305,12 @@ namespace FusionExamples.Tanknarok
 			if (damage >= life)
 			{
 				life = 0;
-				state = State.Dead;
+				UnitState = UnitState.Dead;
 				
 				if(GameManager.playState==GameManager.PlayState.LEVEL)
 					lives -= 1;
 
-				if (lives > 0)
+				if (true) //(lives > 0) infinite lives for technical test lol 
 					Respawn( _respawnTime );
 
 				GameManager.instance.OnTankDeath();
@@ -334,7 +339,7 @@ namespace FusionExamples.Tanknarok
 			SpawnPoint spawnpt = GetLevelManager().GetPlayerSpawnPoint(playerID);
 			if (spawnpt!=null && _respawnInSeconds <= 0)
 			{
-				Debug.Log($"Respawning player {playerID}, life={life}, lives={lives}, hasAuthority={Object.HasStateAuthority} from state={state}");
+				Debug.Log($"Respawning player {playerID}, life={life}, lives={lives}, hasAuthority={Object.HasStateAuthority} from state={UnitState}");
 
 				// Make sure we don't get in here again, even if we hit exactly zero
 				_respawnInSeconds = -1;
@@ -352,10 +357,10 @@ namespace FusionExamples.Tanknarok
 				transform.rotation = spawn.rotation;
 
 				// If the player was already here when we joined, it might already be active, in which case we don't want to trigger any spawn FX, so just leave it ACTIVE
-				if(state!=State.Active)
-					state = State.Spawning;
+				if(UnitState!=UnitState.Active)
+					UnitState = UnitState.Spawning;
 	
-				Debug.Log($"Respawned player {playerID}, tick={Runner.Simulation.Tick}, timer={respawnTimer.IsRunning}:{respawnTimer.TargetTick}, life={life}, lives={lives}, hasAuthority={Object.HasStateAuthority} to state={state}");
+				Debug.Log($"Respawned player {playerID}, tick={Runner.Simulation.Tick}, timer={respawnTimer.IsRunning}:{respawnTimer.TargetTick}, life={life}, lives={lives}, hasAuthority={Object.HasStateAuthority} to state={UnitState}");
 			}
 		}
 		
@@ -367,16 +372,16 @@ namespace FusionExamples.Tanknarok
 
 		public void OnStateChanged()
 		{
-			switch (state)
+			switch (UnitState)
 			{
-				case State.Spawning:
+				case UnitState.Spawning:
 					_teleportIn.StartTeleport();
 					break;
-				case State.Active:
+				case UnitState.Active:
 					_damageVisuals.CleanUpDebris();
 					_teleportIn.EndTeleport();
 					break;
-				case State.Dead:
+				case UnitState.Dead:
 					_deathExplosionInstance.transform.position = transform.position;
 					_deathExplosionInstance.SetActive(false); // dirty fix to reactivate the death explosion if the particlesystem is still active
 					_deathExplosionInstance.SetActive(true);
@@ -384,7 +389,7 @@ namespace FusionExamples.Tanknarok
 					_visualParent.gameObject.SetActive(false);
 					_damageVisuals.OnDeath();
 					break;
-				case State.Despawned:
+				case UnitState.Despawned:
 					_teleportOut.StartTeleport();
 					break;
 			}
@@ -392,9 +397,9 @@ namespace FusionExamples.Tanknarok
 
 		private void ResetPlayer()
 		{
-			Debug.Log($"Resetting player {playerID}, tick={Runner.Simulation.Tick}, timer={respawnTimer.IsRunning}:{respawnTimer.TargetTick}, life={life}, lives={lives}, hasAuthority={Object.HasStateAuthority} to state={state}");
+			Debug.Log($"Resetting player {playerID}, tick={Runner.Simulation.Tick}, timer={respawnTimer.IsRunning}:{respawnTimer.TargetTick}, life={life}, lives={lives}, hasAuthority={Object.HasStateAuthority} to state={UnitState}");
 			shooter.ResetAllWeapons();
-			state = State.Active;
+			UnitState = UnitState.Active;
 		}
 
 		public override void Despawned(NetworkRunner runner, bool hasState)
@@ -405,10 +410,10 @@ namespace FusionExamples.Tanknarok
 
 		public void DespawnTank()
 		{
-			if (state == State.Dead)
+			if (UnitState == UnitState.Dead)
 				return;
 
-			state = State.Despawned;
+			UnitState = UnitState.Despawned;
 		}
 
 		/// <summary>
@@ -466,6 +471,21 @@ namespace FusionExamples.Tanknarok
 					Runner.Despawn(Object);
 				}
 			}
-		}		 
+		}
+
+		public Transform GetTankTurret()
+		{
+			return _turret;
+		}
+
+		public Transform GetTankHull()
+		{
+			return _hull;
+		}
+
+		public Color GetTankColor()
+		{
+			return playerColor;
+		}
 	}
 }

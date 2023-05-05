@@ -18,7 +18,7 @@ namespace FusionExamples.Tanknarok
 			ResetScore();
 			HideScore();
 
-			Color scoreColor = player.playerMaterial.GetColor("_SilhouetteColor");
+			Color scoreColor = player.playerPrimary.GetColor("_SilhouetteColor");
 			_score.color = scoreColor;
 		}
 

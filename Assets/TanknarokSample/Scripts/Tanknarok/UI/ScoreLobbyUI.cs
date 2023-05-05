@@ -14,7 +14,7 @@ namespace FusionExamples.Tanknarok
 		{
 			_playerName.text = player.playerName.Value;
 
-			Color textColor = player.playerMaterial.GetColor("_SilhouetteColor");
+			Color textColor = player.playerPrimary.GetColor("_SilhouetteColor");
 			_score.color = textColor;
 			_playerName.color = textColor;
 		}
