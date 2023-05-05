@@ -29,6 +29,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4885651135283617847}
   m_RootOrder: 0
@@ -126,6 +127,7 @@ Transform:
   m_LocalRotation: {x: 0.6532816, y: 0.27059823, z: 0.65328133, w: 0.27059785}
   m_LocalPosition: {x: 0, y: 1, z: 0.36999893}
   m_LocalScale: {x: 0.11999999, y: 0.120000005, z: 0.12000001}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4885651135283617847}
   m_RootOrder: 2
@@ -208,6 +210,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4885651135283617847}
   m_RootOrder: 1
@@ -294,6 +297,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3952860517801752879}
   - {fileID: 4521411879244337936}
@@ -313,10 +317,11 @@ MonoBehaviour:
   m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AoiMode: 0
-  DefaultPropertyGroups: []
+  ObjectInterest: 0
+  DefaultInterestGroups: []
   DestroyWhenStateAuthorityLeaves: 0
-  AoiPosition: {fileID: 0}
+  AllowStateAuthorityOverride: 1
+  AoiPositionSource: {fileID: 0}
   Flags: 2305
   NetworkGuid:
     RawGuidValue: 120ffc773e92e4ab2834f0c3007edc5a
@@ -349,6 +354,8 @@ MonoBehaviour:
   _mainPowerupColor: {r: 1, g: 0.70980394, b: 0, a: 1}
   _specialPowerupColor: {r: 0, g: 0.41568628, b: 1, a: 1}
   _buffPowerupColor: {r: 0.16078432, g: 1, b: 0, a: 1}
+  _isRespawning:
+    _value: 0
   _activePowerupIndex: 0
   _respawnTimerFloat: 0
 --- !u!114 &8002685214106596891
@@ -364,8 +371,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interpolationDataSource: 0
-  _interpolationTarget: {fileID: 0}
-  _space: 0
+  InterpolationSpace: 0
+  InterpolationTarget: {fileID: 0}
+  InterpolateErrorCorrection: 1
+  InterpolatedErrorCorrectionSettings:
+    MinRate: 3.3
+    MaxRate: 10
+    PosBlendStart: 0.25
+    PosBlendEnd: 1
+    PosMinCorrection: 0.025
+    PosTeleportDistance: 2
+    RotBlendStart: 0.1
+    RotBlendEnd: 0.5
+    RotTeleportRadians: 1.5
+  UseLegacySharedModeInterpolation: 0
+  TargetInterpolationDelay: 0.03
 --- !u!65 &-578924347114627800
 BoxCollider:
   m_ObjectHideFlags: 0
