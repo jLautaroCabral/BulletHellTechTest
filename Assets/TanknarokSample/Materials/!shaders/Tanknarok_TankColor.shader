@@ -6,9 +6,11 @@
 		_RimColor("RimColor", Color) = (1,1,1,1)
 		_SilhouetteColor("Silhouette Color", Color) = (1,1,1,1)
 		
-		
 		_TextColor("Text Color", Color) = (1,1,1,1)
 		[HDR] _EnergyColor("Energy Color", Color) = (1,1,1,1)
+		[HDR] _EmissionColor("Emission Color", Color) = (0,0,0,0)
+
+
 		[HideInInspector] _FlashEmissionMultiplier("EmissionMultiplier", Float) = 1.2
 		[HideInInspector] _RimStrength("RimStrength", Float) = 3.0
 	}
@@ -56,6 +58,7 @@
 				float4 color : COLOR;
 			};
 
+			/**/
 			v2f vert(appdata v) {
 				v2f o;
 				o.vertex = UnityObjectToClipPos(v.vertex);
@@ -74,10 +77,12 @@
 		#pragma surface surf Standard fullforwardshadows
 		#pragma target 3.0
 
+		#pragma shader_feature _EMISSION
 		
 		sampler2D _MainTex;
 		float4 _RimColor;
 		float _RimStrength;
+		fixed4 _EmissionColor;
 
 		struct Input {
 			float2 uv_MainTex;
@@ -96,10 +101,12 @@
 			o.Metallic = 0;
 			o.Smoothness = 0;
 			o.Alpha = 1;
-
+			
 			fixed4 damageColor = _TransitionColor * _FlashEmissionMultiplier;
 			fixed4 c = lerp(tex2D(_MainTex, IN.uv_MainTex), damageColor, _Transition);
 
+			o.Emission = c.rgb * tex2D(_MainTex, IN.uv_MainTex).a * _EmissionColor;
+			
 			//get the dot product between the normal and the view direction
 			float fresnel = dot(IN.worldNormal, IN.viewDir);
 			//invert the fresnel so the big values are on the outside

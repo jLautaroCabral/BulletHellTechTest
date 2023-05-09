@@ -39,6 +39,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 2086113352017859789, guid: c72fb1de194f6b24a92d1b8217df747b, type: 3}
+      propertyPath: m_TagString
+      value: TankBodyPart
+      objectReference: {fileID: 0}
     - target: {fileID: 3191812727878037553, guid: c72fb1de194f6b24a92d1b8217df747b, type: 3}
       propertyPath: m_Name
       value: weapon_primary_main
