@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2417761938976764074}
   - component: {fileID: 8983768263490044896}
   m_Layer: 10
-  m_Name: pfx_exp_Minigun 1
+  m_Name: pfx_playerShoot_onCollision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

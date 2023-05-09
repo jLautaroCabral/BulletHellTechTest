@@ -53799,7 +53799,7 @@ GameObject:
   - component: {fileID: 3726879629887449942}
   - component: {fileID: 8069613701744454574}
   m_Layer: 10
-  m_Name: pfx_exp_bot_died
+  m_Name: pfx_exp_onBotDie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

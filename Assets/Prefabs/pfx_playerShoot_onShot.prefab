@@ -9839,7 +9839,7 @@ GameObject:
   - component: {fileID: 198922892736825384}
   - component: {fileID: 199025149948526550}
   m_Layer: 8
-  m_Name: fx_shot_default_player_exit
+  m_Name: pfx_playerShoot_onShot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
