@@ -8,7 +8,7 @@ using Random = UnityEngine.Random;
 public class TankBot : NetworkBehaviour, ICanTakeDamage, ITankUnit
 {
     public NavMeshAgent navAgent;
-    private TankDamageVisualCustom _damageVisuals;
+    private BotTankDamageVisual _damageVisuals;
     [SerializeField] private Transform _visualParent;
     
     [SerializeField] private Collider _collider;
@@ -55,7 +55,7 @@ public class TankBot : NetworkBehaviour, ICanTakeDamage, ITankUnit
 
     private void Awake()
     {
-        _damageVisuals = GetComponent<TankDamageVisualCustom>();
+        _damageVisuals = GetComponent<BotTankDamageVisual>();
         _collider = GetComponentInChildren<Collider>();
         _hitBoxRoot = GetComponent<HitboxRoot>();
     }
