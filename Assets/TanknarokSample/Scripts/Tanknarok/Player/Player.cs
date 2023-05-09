@@ -31,6 +31,7 @@ namespace FusionExamples.Tanknarok
 		[SerializeField] private TankTeleportInEffect _teleportIn;
 		[SerializeField] private TankTeleportOutEffect _teleportOut;
 
+		
 		[Space(10)] 
 		[SerializeField] private GameObject _deathExplosionPrefab;
 		[SerializeField] private LayerMask _groundMask;
@@ -42,6 +43,7 @@ namespace FusionExamples.Tanknarok
 		[Networked(OnChanged = nameof(OnStateChanged))]
 		public UnitState UnitState { get; set; }
 
+		
 		[Networked]
 		public byte life { get; set; }
 
@@ -105,7 +107,7 @@ namespace FusionExamples.Tanknarok
 		private LevelManager _levelManager;
 		private Vector2 _lastMoveDirection; // Store the previous direction for correct hull rotation
 		private GameObject _deathExplosionInstance;
-		private TankDamageVisual _damageVisuals;
+		private PlayerTankDamageVisual _damageVisuals;
 		private float _respawnInSeconds = -1;
 
 		public void ToggleReady()
@@ -155,7 +157,7 @@ namespace FusionExamples.Tanknarok
 			_teleportIn.Initialize(this);
 			_teleportOut.Initialize(this);
 
-			_damageVisuals = GetComponent<TankDamageVisual>();
+			_damageVisuals = GetComponent<PlayerTankDamageVisual>();
 			_damageVisuals.Initialize(playerMaterials);
 
 			PlayerManager.AddPlayer(this);

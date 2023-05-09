@@ -5,13 +5,15 @@ using UnityEngine;
 namespace FusionExamples.Tanknarok
 {
 	[RequireComponent(typeof(Player))]
-	public class TankDamageVisual : MonoBehaviour
+	public class PlayerTankDamageVisual : MonoBehaviour
 	{
 		[Header("Health")] [SerializeField] private int _gameMaxHealth = 100;
 		private int _previousHealth;
 
-		[Header("Helpers")] [SerializeField] private Transform _drivingDustParent;
+		[Header("Helpers")]
+		[SerializeField] private Transform _drivingDustParent;
 		[SerializeField] private Transform _damageParticleParent;
+		
 		[SerializeField] private MeshFilter _tankBotVisual;
 		[SerializeField] private MeshFilter _tankTopVisual;
 
@@ -36,11 +38,11 @@ namespace FusionExamples.Tanknarok
 		[Header("Audio")] [SerializeField] private AudioClipData _damageSnd;
 		[SerializeField] private AudioClipData _explosionSnd;
 		[SerializeField] private AudioEmitter _audioEmitter;
+		
 
 		public void Initialize(PlayerMaterialsSO playerMaterial)
 		{
 			_damageMaterials = playerMaterial;
-
 			_damageParticleParent.parent = transform.parent;
 
 
@@ -70,16 +72,7 @@ namespace FusionExamples.Tanknarok
 
 			_active = true;
 		}
-
-		private void OnDisable()
-		{
-			if (_damageMaterials != null && _active)
-			{
-				_damageMaterials.primaryMaterial.SetFloat("_Transition", 0f);
-				_damageMaterials.secundaryMaterial.SetFloat("_Transition", 0f);
-			}
-		}
-
+		
 		//Generalized creation of particlesystem from a list of particleprefabs to a list of particles with a set parent
 		void InstantiateNewParticles(ParticleSystem prefab, List<ParticleSystem> particleList, Transform parent, bool useCommonMaterial = false)
 		{
@@ -103,6 +96,15 @@ namespace FusionExamples.Tanknarok
 			particleList.Add(part);
 		}
 
+		private void OnDisable()
+		{
+			if (_damageMaterials != null && _active)
+			{
+				_damageMaterials.primaryMaterial.SetFloat("_Transition", 0f);
+				_damageMaterials.secundaryMaterial.SetFloat("_Transition", 0f);
+			}
+		}
+		
 		public void OnDeath()
 		{
 			_audioEmitter.PlayOneShot(_explosionSnd);
