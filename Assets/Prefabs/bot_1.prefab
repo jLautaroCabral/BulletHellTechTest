@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3571603634453657532}
   - component: {fileID: 6783420363833008735}
   m_Layer: 8
-  m_Name: HullPart
+  m_Name: HullBodyPart
   m_TagString: TankBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -200,6 +200,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &324146076539682952
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2696973903384278152}
+  m_Layer: 8
+  m_Name: Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2696973903384278152
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 324146076539682952}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.385, y: 0.327, z: 0.92}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9046562366854110299}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &328280513105114991
 GameObject:
   m_ObjectHideFlags: 0
@@ -326,7 +357,7 @@ GameObject:
   - component: {fileID: 6449986476608886282}
   - component: {fileID: 1796936225154879190}
   m_Layer: 8
-  m_Name: HullPart (3)
+  m_Name: HullBodyPart
   m_TagString: TankBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -406,13 +437,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5085382583052216078}
+  - component: {fileID: 3861435557278128168}
   m_Layer: 8
-  m_Name: VisualModule(damaged)
+  m_Name: HullVisualModule(damaged)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5085382583052216078
 Transform:
   m_ObjectHideFlags: 0
@@ -439,8 +471,23 @@ Transform:
   - {fileID: 7792724177118610861}
   - {fileID: 7269543818781700604}
   m_Father: {fileID: 8452678108642866672}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3861435557278128168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 486637472465426729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2824c1950e172434593d63aa5ea6abdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeScaleAmountByAxis: {x: 0, y: 0, z: 0}
+  shakePositionAmountByAxis: {x: 0.05, y: 0, z: 0.05}
+  shakeSpeed: 50
 --- !u!1 &531926756689819628
 GameObject:
   m_ObjectHideFlags: 0
@@ -619,7 +666,7 @@ GameObject:
   - component: {fileID: 4432267735708057534}
   - component: {fileID: 6086180602405121721}
   m_Layer: 8
-  m_Name: HullPart
+  m_Name: HullBodyPart
   m_TagString: TankBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1354,6 +1401,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &1632517084829778946
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8649783711871889664}
+  m_Layer: 8
+  m_Name: Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8649783711871889664
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1632517084829778946}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.845, y: 0.306, z: 0.54}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9046562366854110299}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1737035022448662747
 GameObject:
   m_ObjectHideFlags: 0
@@ -1769,6 +1847,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &2178611713779586434
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3741917921858113293}
+  m_Layer: 8
+  m_Name: Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3741917921858113293
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2178611713779586434}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7919912823579026237}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2272004845292973030
 GameObject:
   m_ObjectHideFlags: 0
@@ -1832,6 +1941,7 @@ Transform:
   m_Children:
   - {fileID: 6674640751963955606}
   - {fileID: 9046562366854110299}
+  - {fileID: 7919912823579026237}
   m_Father: {fileID: 7911653039066033918}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2041,7 +2151,7 @@ GameObject:
   - component: {fileID: 1951096270378814464}
   - component: {fileID: 3536139049867866019}
   m_Layer: 8
-  m_Name: HullPart
+  m_Name: HullBodyPart
   m_TagString: TankBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2124,7 +2234,7 @@ GameObject:
   - component: {fileID: 7620249151164610304}
   - component: {fileID: 6487700536706381422}
   m_Layer: 8
-  m_Name: HullPart
+  m_Name: HullBodyPart
   m_TagString: TankBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2323,7 +2433,7 @@ GameObject:
   - component: {fileID: 470455566478925224}
   - component: {fileID: 6968593092053554450}
   m_Layer: 8
-  m_Name: HullPart
+  m_Name: HullBodyPart
   m_TagString: TankBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2572,7 +2682,7 @@ GameObject:
   - component: {fileID: 4930423880062642269}
   - component: {fileID: 5097202495088885741}
   m_Layer: 8
-  m_Name: HullPart (5)
+  m_Name: HullBodyPart
   m_TagString: TankBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3141,6 +3251,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &3525389700062608346
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2638254610177479536}
+  m_Layer: 8
+  m_Name: Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2638254610177479536
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3525389700062608346}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.328, y: 0.65, z: 0.69}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9046562366854110299}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3867988936504977963
 GameObject:
   m_ObjectHideFlags: 0
@@ -3317,7 +3458,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8951814842313428185}
   m_Layer: 8
-  m_Name: VisualModule(normal)
+  m_Name: TurretVisualModule(normal)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3532,7 +3673,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4234309799271536926
 Transform:
   m_ObjectHideFlags: 0
@@ -3847,6 +3988,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &4052357787429493984
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 476738980996147830}
+  m_Layer: 8
+  m_Name: Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &476738980996147830
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4052357787429493984}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.55, y: 0.65, z: 0.792}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9046562366854110299}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4063538101920004664
 GameObject:
   m_ObjectHideFlags: 0
@@ -4179,37 +4351,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &4493096586829041388
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8201625898692703910}
-  m_Layer: 8
-  m_Name: DrivingDamagedDustParent
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &8201625898692703910
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4493096586829041388}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.504, y: 1.83, z: 0.83}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 8452678108642866672}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4497495233188985771
 GameObject:
   m_ObjectHideFlags: 0
@@ -4305,7 +4446,7 @@ GameObject:
   - component: {fileID: 1620149810220622538}
   - component: {fileID: 4952535196827429865}
   m_Layer: 8
-  m_Name: HullPart
+  m_Name: HullBodyPart
   m_TagString: TankBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4471,7 +4612,7 @@ GameObject:
   - component: {fileID: 3149531156629161611}
   - component: {fileID: 820302726454623989}
   m_Layer: 8
-  m_Name: HullPart (1)
+  m_Name: HullBodyPart
   m_TagString: TankBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4774,12 +4915,12 @@ GameObject:
   - component: {fileID: 3329352155798437671}
   - component: {fileID: 7689909405210124697}
   m_Layer: 8
-  m_Name: HullPart (7)
+  m_Name: HullBodyPart
   m_TagString: TankBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2946493151880254847
 Transform:
   m_ObjectHideFlags: 0
@@ -4857,7 +4998,7 @@ GameObject:
   - component: {fileID: 5309545100324002391}
   - component: {fileID: 8660182829693611993}
   m_Layer: 8
-  m_Name: HullPart (1)
+  m_Name: HullBodyPart
   m_TagString: TankBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4938,7 +5079,7 @@ GameObject:
   m_Component:
   - component: {fileID: 664124153392817893}
   m_Layer: 8
-  m_Name: VisualModule(normal)
+  m_Name: HulllVisualModule(normal)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4970,7 +5111,7 @@ Transform:
   - {fileID: 3725653860024738911}
   - {fileID: 7832745981404684682}
   m_Father: {fileID: 8452678108642866672}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5343041647810566016
 GameObject:
@@ -4984,7 +5125,7 @@ GameObject:
   - component: {fileID: 2574829228748506026}
   - component: {fileID: 6790433311786989622}
   m_Layer: 8
-  m_Name: HullPart (2)
+  m_Name: HullBodyPart
   m_TagString: TankBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5067,7 +5208,7 @@ GameObject:
   - component: {fileID: 7756016071074951549}
   - component: {fileID: 2259161549574689755}
   m_Layer: 8
-  m_Name: HullPart
+  m_Name: HullBodyPart
   m_TagString: TankBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5147,13 +5288,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8449083963229011945}
+  - component: {fileID: 2268369452753780044}
   m_Layer: 8
-  m_Name: VisualModule(critical)
+  m_Name: HullVisualModule(critical)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8449083963229011945
 Transform:
   m_ObjectHideFlags: 0
@@ -5180,8 +5322,23 @@ Transform:
   - {fileID: 8770239596704549428}
   - {fileID: 1131152269912599910}
   m_Father: {fileID: 8452678108642866672}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2268369452753780044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5427013426112117116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2824c1950e172434593d63aa5ea6abdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeScaleAmountByAxis: {x: 0, y: 0, z: 0}
+  shakePositionAmountByAxis: {x: 0.08, y: 0, z: 0.08}
+  shakeSpeed: 50
 --- !u!1 &5500003501234672764
 GameObject:
   m_ObjectHideFlags: 0
@@ -5546,7 +5703,7 @@ GameObject:
   - component: {fileID: 4096117838516392287}
   - component: {fileID: 4946321924361810115}
   m_Layer: 8
-  m_Name: HullPart
+  m_Name: HullBodyPart
   m_TagString: TankBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5878,7 +6035,7 @@ GameObject:
   - component: {fileID: 3212042755808230414}
   - component: {fileID: 5009977101321007766}
   m_Layer: 8
-  m_Name: HullPart (2)
+  m_Name: HullBodyPart
   m_TagString: TankBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5995,7 +6152,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2824c1950e172434593d63aa5ea6abdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shakeAmountByAxis: {x: -0.02, y: 0.06, z: -0.02}
+  shakeScaleAmountByAxis: {x: -0.02, y: 0.06, z: -0.02}
+  shakePositionAmountByAxis: {x: 0, y: 0, z: 0}
   shakeSpeed: 40
 --- !u!1 &6530538596872952117
 GameObject:
@@ -6090,12 +6248,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4695971614353452812}
   m_Layer: 8
-  m_Name: VisualModule(damaged)
+  m_Name: TurretVisualModule(damaged)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4695971614353452812
 Transform:
   m_ObjectHideFlags: 0
@@ -6463,13 +6621,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3398850109727473705}
+  - component: {fileID: 646643518079617519}
   m_Layer: 8
-  m_Name: VisualModule(critical)
+  m_Name: TurretVisualModule(critical)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3398850109727473705
 Transform:
   m_ObjectHideFlags: 0
@@ -6497,6 +6656,21 @@ Transform:
   m_Father: {fileID: 1185371072849741531}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &646643518079617519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6835846386845421018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2824c1950e172434593d63aa5ea6abdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeScaleAmountByAxis: {x: 0, y: 0, z: 0}
+  shakePositionAmountByAxis: {x: 0.08, y: 0, z: 0.08}
+  shakeSpeed: 50
 --- !u!1 &6940867622664238522
 GameObject:
   m_ObjectHideFlags: 0
@@ -6514,7 +6688,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7717955176393497276
 Transform:
   m_ObjectHideFlags: 0
@@ -6711,7 +6885,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7547804787534033422
 Transform:
   m_ObjectHideFlags: 0
@@ -7041,7 +7215,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &911850121291116296
 Transform:
   m_ObjectHideFlags: 0
@@ -7067,7 +7241,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9046562366854110299}
   m_Layer: 8
-  m_Name: DamageParticles
+  m_Name: DamageSmokeParticlesParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7084,7 +7258,11 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2696973903384278152}
+  - {fileID: 2638254610177479536}
+  - {fileID: 476738980996147830}
+  - {fileID: 8649783711871889664}
   m_Father: {fileID: 7933785314457126569}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7375,7 +7553,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _flashTime: 0.125
-  _tankBodyParts2:
+  _damageSnd: {fileID: 11400000, guid: 2e984c74b9f232843a87d2fc9ace1a84, type: 2}
+  _explosionSnd: {fileID: 11400000, guid: 19dc1f503dba3f5439321de967b260b8, type: 2}
+  _audioEmitter: {fileID: 1764107499}
+  _damagedSteps:
+  - DamagedModules:
+    - {fileID: 5271535668701371908}
+    - {fileID: 3949403615927381236}
+    DamagedStepAssets: {fileID: 11400000, guid: 3e518c9efebb8b24c915a9248e63fe74, type: 2}
+    threshold: 150
+  - DamagedModules:
+    - {fileID: 486637472465426729}
+    - {fileID: 6557130755837455114}
+    DamagedStepAssets: {fileID: 11400000, guid: 66748a6a6e9d6d64fb7bd4f1af8f1738, type: 2}
+    threshold: 100
+  - DamagedModules:
+    - {fileID: 5427013426112117116}
+    - {fileID: 6835846386845421018}
+    DamagedStepAssets: {fileID: 11400000, guid: d11f3a2a415691f4ea05a201dd2b0427, type: 2}
+    threshold: 50
+  tankBodyParts:
   - {fileID: 1061760632338794093}
   - {fileID: 8535717189312652279}
   - {fileID: 649937701595916530}
@@ -7389,6 +7586,22 @@ MonoBehaviour:
   - {fileID: 1427468077646078930}
   - {fileID: 4796034066552688384}
   - {fileID: 606062197612980269}
+  - {fileID: 6086180602405121721}
+  - {fileID: 3536139049867866019}
+  - {fileID: 6783420363833008735}
+  - {fileID: 2259161549574689755}
+  - {fileID: 8660182829693611993}
+  - {fileID: 5009977101321007766}
+  - {fileID: 1796936225154879190}
+  - {fileID: 5097202495088885741}
+  - {fileID: 7689909405210124697}
+  - {fileID: 9219550490933605293}
+  - {fileID: 4952535196827429865}
+  - {fileID: 4946321924361810115}
+  - {fileID: 6487700536706381422}
+  - {fileID: 6968593092053554450}
+  - {fileID: 820302726454623989}
+  - {fileID: 6790433311786989622}
   - {fileID: 2177383968183633545}
   - {fileID: 8590006602875934816}
   - {fileID: 2692181717299738121}
@@ -7403,9 +7616,12 @@ MonoBehaviour:
   - {fileID: 3495371464528195753}
   - {fileID: 2681039842962108050}
   - {fileID: 2420653041200187553}
-  _damageSnd: {fileID: 11400000, guid: 2e984c74b9f232843a87d2fc9ace1a84, type: 2}
-  _explosionSnd: {fileID: 11400000, guid: 19dc1f503dba3f5439321de967b260b8, type: 2}
-  _audioEmitter: {fileID: 1764107499}
+  damagedParticlesToAdd: 1
+  damagedParticlesPoints:
+  - {fileID: 2696973903384278152}
+  - {fileID: 2638254610177479536}
+  - {fileID: 476738980996147830}
+  - {fileID: 8649783711871889664}
   hull: {fileID: 8452678108642866672}
   turret: {fileID: 1185371072849741531}
 --- !u!114 &1764107499
@@ -7483,7 +7699,6 @@ Transform:
   m_Children:
   - {fileID: 8413464888283590545}
   - {fileID: 1864767574192964711}
-  - {fileID: 8201625898692703910}
   - {fileID: 664124153392817893}
   - {fileID: 5085382583052216078}
   - {fileID: 8449083963229011945}
@@ -7557,7 +7772,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &602743070526654629
 Transform:
   m_ObjectHideFlags: 0
@@ -7904,6 +8119,38 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &8750575117104992707
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7919912823579026237}
+  m_Layer: 8
+  m_Name: DamageHitParticlesParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7919912823579026237
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8750575117104992707}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3741917921858113293}
+  m_Father: {fileID: 7933785314457126569}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8910070765259936947
 GameObject:
   m_ObjectHideFlags: 0
@@ -7916,7 +8163,7 @@ GameObject:
   - component: {fileID: 3844907932539637168}
   - component: {fileID: 9219550490933605293}
   m_Layer: 8
-  m_Name: HullPart (8)
+  m_Name: HullBodyPart
   m_TagString: TankBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

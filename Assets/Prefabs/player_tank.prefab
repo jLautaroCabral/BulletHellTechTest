@@ -4395,7 +4395,7 @@ GameObject:
   - component: {fileID: 6951747966731050368}
   - component: {fileID: 2039004788954265569}
   - component: {fileID: 8616232291554802440}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: player_tank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
