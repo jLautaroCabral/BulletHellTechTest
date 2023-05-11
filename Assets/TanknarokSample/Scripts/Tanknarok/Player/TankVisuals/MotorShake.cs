@@ -1,14 +1,17 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace FusionExamples.Tanknarok
 {
 	public class MotorShake : MonoBehaviour
 	{
-		[SerializeField] private Vector3 shakeAmountByAxis = Vector3.zero;
+		[FormerlySerializedAs("shakeAmountByAxis")] [SerializeField] private Vector3 shakeScaleAmountByAxis = Vector3.zero;
+		[SerializeField] private Vector3 shakePositionAmountByAxis = Vector3.zero;
 		[SerializeField] private float shakeSpeed = 10f;
 
 		private float offset;
 		private Vector3 originScale;
+		private Vector3 originPosition;
 
 		void Start()
 		{
@@ -16,18 +19,28 @@ namespace FusionExamples.Tanknarok
 			offset = Random.Range(-Mathf.PI, Mathf.PI);
 		}
 
-		Vector3 CalculateShake()
+		Vector3 CalculateScaleShake()
 		{
 			Vector3 shake = new Vector3(Mathf.Sin(Time.time * shakeSpeed + offset), Mathf.Sin(Time.time * shakeSpeed + offset), Mathf.Sin(Time.time * shakeSpeed + offset));
-			shake.x *= shakeAmountByAxis.x;
-			shake.y *= shakeAmountByAxis.y;
-			shake.z *= shakeAmountByAxis.z;
+			shake.x *= shakeScaleAmountByAxis.x;
+			shake.y *= shakeScaleAmountByAxis.y;
+			shake.z *= shakeScaleAmountByAxis.z;
+			return shake;
+		}
+		
+		Vector3 CalculatePositiomShake()
+		{
+			Vector3 shake = new Vector3(Mathf.Sin(Time.time * shakeSpeed + offset), Mathf.Sin(Time.time * shakeSpeed + offset), Mathf.Sin(Time.time * shakeSpeed + offset));
+			shake.x *= shakePositionAmountByAxis.x;
+			shake.y *= shakePositionAmountByAxis.y;
+			shake.z *= shakePositionAmountByAxis.z;
 			return shake;
 		}
 
 		void Update()
 		{
-			transform.localScale = originScale + CalculateShake();
+			transform.localScale = originScale + CalculateScaleShake();
+			transform.localPosition = originPosition + CalculatePositiomShake();
 		}
 	}
 }
