@@ -26,7 +26,7 @@ public class BotSpawner : NetworkBehaviour
 	private float _selectedRespawnTimerDuration;
 	
 	//[SerializeField]
-	private const byte MAX_ALIVE_BOT_AMOUNT = 13;
+	private const byte MAX_ALIVE_BOT_AMOUNT = 6;
 
 	public static byte BotAmount = 0; 
 

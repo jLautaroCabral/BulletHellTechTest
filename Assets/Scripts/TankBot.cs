@@ -46,7 +46,7 @@ public class TankBot : NetworkBehaviour, ICanTakeDamage, ITankUnit
     
     [Networked]
     public byte life { get; set; }
-    public const byte MAX_HEALTH = 100;
+    public const byte MAX_HEALTH = 250;
     private void OnDrawGizmos()
     {
         //Vector3 boundsOffset = this.boundsOffset + (new Vector3(0, 0, boundsMovementMax));
@@ -69,11 +69,14 @@ public class TankBot : NetworkBehaviour, ICanTakeDamage, ITankUnit
     
     public override void Spawned()
     {
+        _damageVisuals.Initialize(MAX_HEALTH);
         _teleportIn.Initialize(this);
         SetupDeathExplosion();
         
         if (!Object.HasStateAuthority)
             return;
+        
+        
         
         life = MAX_HEALTH;
         BotState = UnitState.Spawning;
