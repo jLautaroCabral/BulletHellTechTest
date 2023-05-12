@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e67d5c94ff78cb84d913bb2cca12e7c4, type: 3}
-  m_Name: TankDamageStep 2
+  m_Name: tank_dStep_default_damaged
   m_EditorClassIdentifier: 
-  hitParticles: {fileID: 0}
-  smokeDamageParticles: {fileID: 1207640726961642, guid: da874b7b34d1ae147a1fe170c2e3ba58, type: 3}
+  hitParticles: {fileID: 1751374081315736, guid: 115cd3dc5bb200d43b52692083d2dadc, type: 3}
+  smokeDamageParticles: {fileID: 1207640726961642, guid: 891e0bb4bc4ef224ca7381a6ed29e427, type: 3}

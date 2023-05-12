@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3571603634453657532}
   - component: {fileID: 6783420363833008735}
   m_Layer: 8
-  m_Name: HullBodyPart
+  m_Name: BodyPart(Scaned)
   m_TagString: TankBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 7911717324989517717}
   - component: {fileID: 1427468077646078930}
   m_Layer: 8
-  m_Name: HullBodyPart
+  m_Name: BodyPart(Scaned)
   m_TagString: TankBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -274,7 +274,7 @@ GameObject:
   - component: {fileID: 5458720455423504558}
   - component: {fileID: 1061760632338794093}
   m_Layer: 8
-  m_Name: HullBodyPart
+  m_Name: BodyPart(Scaned)
   m_TagString: TankBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -357,7 +357,7 @@ GameObject:
   - component: {fileID: 6449986476608886282}
   - component: {fileID: 1796936225154879190}
   m_Layer: 8
-  m_Name: HullBodyPart
+  m_Name: BodyPart(Scaned)
   m_TagString: TankBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -500,7 +500,7 @@ GameObject:
   - component: {fileID: 8667801419064956229}
   - component: {fileID: 7890362661676888127}
   m_Layer: 8
-  m_Name: TurretBodyPart
+  m_Name: BodyPart(Scaned)
   m_TagString: TankBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -666,7 +666,7 @@ GameObject:
   - component: {fileID: 4432267735708057534}
   - component: {fileID: 6086180602405121721}
   m_Layer: 8
-  m_Name: HullBodyPart
+  m_Name: BodyPart(Scaned)
   m_TagString: TankBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -915,7 +915,7 @@ GameObject:
   - component: {fileID: 8154472344079966321}
   - component: {fileID: 7271480341841215398}
   m_Layer: 8
-  m_Name: Cylinder
+  m_Name: BodyPart(Scaned)
   m_TagString: TankBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -998,7 +998,7 @@ GameObject:
   - component: {fileID: 4634895640442400590}
   - component: {fileID: 7776243617173814877}
   m_Layer: 8
-  m_Name: TurretBodyPart
+  m_Name: BodyPart(Scaned)
   m_TagString: TankBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1081,7 +1081,7 @@ GameObject:
   - component: {fileID: 4510527455405862729}
   - component: {fileID: 1609720679668789583}
   m_Layer: 8
-  m_Name: Cylinder (2)
+  m_Name: BodyPart(Scaned)
   m_TagString: TankBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1330,7 +1330,7 @@ GameObject:
   - component: {fileID: 7393632895344999901}
   - component: {fileID: 2681039842962108050}
   m_Layer: 8
-  m_Name: TurretBodyPart
+  m_Name: BodyPart(Scaned)
   m_TagString: TankBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1527,7 +1527,7 @@ GameObject:
   - component: {fileID: 3548690615834982846}
   - component: {fileID: 649937701595916530}
   m_Layer: 8
-  m_Name: HullBodyPart
+  m_Name: BodyPart(Scaned)
   m_TagString: TankBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1871,7 +1871,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2178611713779586434}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.45, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2068,7 +2068,7 @@ GameObject:
   - component: {fileID: 6006462970357207542}
   - component: {fileID: 606062197612980269}
   m_Layer: 8
-  m_Name: HullBodyPart
+  m_Name: BodyPart(Scaned)
   m_TagString: TankBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2151,7 +2151,7 @@ GameObject:
   - component: {fileID: 1951096270378814464}
   - component: {fileID: 3536139049867866019}
   m_Layer: 8
-  m_Name: HullBodyPart
+  m_Name: BodyPart(Scaned)
   m_TagString: TankBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2234,7 +2234,7 @@ GameObject:
   - component: {fileID: 7620249151164610304}
   - component: {fileID: 6487700536706381422}
   m_Layer: 8
-  m_Name: HullBodyPart
+  m_Name: BodyPart(Scaned)
   m_TagString: TankBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2433,7 +2433,7 @@ GameObject:
   - component: {fileID: 470455566478925224}
   - component: {fileID: 6968593092053554450}
   m_Layer: 8
-  m_Name: HullBodyPart
+  m_Name: BodyPart(Scaned)
   m_TagString: TankBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2516,7 +2516,7 @@ GameObject:
   - component: {fileID: 1206010592260705631}
   - component: {fileID: 4115449415782046654}
   m_Layer: 8
-  m_Name: TurretBodyPart
+  m_Name: BodyPart(Scaned)
   m_TagString: TankBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2682,7 +2682,7 @@ GameObject:
   - component: {fileID: 4930423880062642269}
   - component: {fileID: 5097202495088885741}
   m_Layer: 8
-  m_Name: HullBodyPart
+  m_Name: BodyPart(Scaned)
   m_TagString: TankBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2765,7 +2765,7 @@ GameObject:
   - component: {fileID: 1742450290112521939}
   - component: {fileID: 5187291986811209778}
   m_Layer: 8
-  m_Name: HullBodyPart
+  m_Name: BodyPart(Scaned)
   m_TagString: TankBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2848,7 +2848,7 @@ GameObject:
   - component: {fileID: 1330553944549802012}
   - component: {fileID: 2420653041200187553}
   m_Layer: 8
-  m_Name: TurretBodyPart
+  m_Name: BodyPart(Scaned)
   m_TagString: TankBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2931,7 +2931,7 @@ GameObject:
   - component: {fileID: 8978411458630994470}
   - component: {fileID: 6180029603000813082}
   m_Layer: 8
-  m_Name: HullBodyPart
+  m_Name: BodyPart(Scaned)
   m_TagString: TankBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3014,7 +3014,7 @@ GameObject:
   - component: {fileID: 15166304761614313}
   - component: {fileID: 5157147277031655608}
   m_Layer: 8
-  m_Name: Cylinder
+  m_Name: BodyPart(Scaned)
   m_TagString: TankBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3377,7 +3377,7 @@ GameObject:
   - component: {fileID: 5141019240299686520}
   - component: {fileID: 3874967732628125507}
   m_Layer: 8
-  m_Name: Cylinder (1)
+  m_Name: BodyPart(Scaned)
   m_TagString: TankBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3502,7 +3502,7 @@ GameObject:
   - component: {fileID: 658425236513491662}
   - component: {fileID: 8535717189312652279}
   m_Layer: 8
-  m_Name: HullBodyPart
+  m_Name: BodyPart(Scaned)
   m_TagString: TankBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3585,7 +3585,7 @@ GameObject:
   - component: {fileID: 8728149981542068423}
   - component: {fileID: 3572160083549785695}
   m_Layer: 8
-  m_Name: HullBodyPart
+  m_Name: BodyPart(Scaned)
   m_TagString: TankBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3668,7 +3668,7 @@ GameObject:
   - component: {fileID: 8418685761147320549}
   - component: {fileID: 6657011837413218181}
   m_Layer: 8
-  m_Name: Cylinder (7)
+  m_Name: BodyPart(Scaned)
   m_TagString: TankBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3751,7 +3751,7 @@ GameObject:
   - component: {fileID: 3886537314061671118}
   - component: {fileID: 4603494702879287957}
   m_Layer: 8
-  m_Name: HullBodyPart
+  m_Name: BodyPart(Scaned)
   m_TagString: TankBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3834,7 +3834,7 @@ GameObject:
   - component: {fileID: 7694253036927973813}
   - component: {fileID: 3929550143545047979}
   m_Layer: 8
-  m_Name: Cylinder (5)
+  m_Name: BodyPart(Scaned)
   m_TagString: TankBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3917,7 +3917,7 @@ GameObject:
   - component: {fileID: 163373476566513125}
   - component: {fileID: 2236790533431129799}
   m_Layer: 8
-  m_Name: Cylinder (8)
+  m_Name: BodyPart(Scaned)
   m_TagString: TankBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4031,7 +4031,7 @@ GameObject:
   - component: {fileID: 6389650680720022887}
   - component: {fileID: 754188702324495090}
   m_Layer: 8
-  m_Name: HullBodyPart
+  m_Name: BodyPart(Scaned)
   m_TagString: TankBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4446,7 +4446,7 @@ GameObject:
   - component: {fileID: 1620149810220622538}
   - component: {fileID: 4952535196827429865}
   m_Layer: 8
-  m_Name: HullBodyPart
+  m_Name: BodyPart(Scaned)
   m_TagString: TankBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4529,7 +4529,7 @@ GameObject:
   - component: {fileID: 7945389267110007747}
   - component: {fileID: 3495371464528195753}
   m_Layer: 8
-  m_Name: TurretBodyPart
+  m_Name: BodyPart(Scaned)
   m_TagString: TankBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4612,7 +4612,7 @@ GameObject:
   - component: {fileID: 3149531156629161611}
   - component: {fileID: 820302726454623989}
   m_Layer: 8
-  m_Name: HullBodyPart
+  m_Name: BodyPart(Scaned)
   m_TagString: TankBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4695,7 +4695,7 @@ GameObject:
   - component: {fileID: 2225339143399067767}
   - component: {fileID: 1530878612230279886}
   m_Layer: 8
-  m_Name: Cube (12)
+  m_Name: BodyPart(Scaned)
   m_TagString: TankBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4998,7 +4998,7 @@ GameObject:
   - component: {fileID: 5309545100324002391}
   - component: {fileID: 8660182829693611993}
   m_Layer: 8
-  m_Name: HullBodyPart
+  m_Name: BodyPart(Scaned)
   m_TagString: TankBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5125,7 +5125,7 @@ GameObject:
   - component: {fileID: 2574829228748506026}
   - component: {fileID: 6790433311786989622}
   m_Layer: 8
-  m_Name: HullBodyPart
+  m_Name: BodyPart(Scaned)
   m_TagString: TankBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5208,7 +5208,7 @@ GameObject:
   - component: {fileID: 7756016071074951549}
   - component: {fileID: 2259161549574689755}
   m_Layer: 8
-  m_Name: HullBodyPart
+  m_Name: BodyPart(Scaned)
   m_TagString: TankBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5620,7 +5620,7 @@ GameObject:
   - component: {fileID: 3446364367965028843}
   - component: {fileID: 4239119426252224309}
   m_Layer: 8
-  m_Name: Cylinder (2)
+  m_Name: BodyPart(Scaned)
   m_TagString: TankBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5703,7 +5703,7 @@ GameObject:
   - component: {fileID: 4096117838516392287}
   - component: {fileID: 4946321924361810115}
   m_Layer: 8
-  m_Name: HullBodyPart
+  m_Name: BodyPart(Scaned)
   m_TagString: TankBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5869,7 +5869,7 @@ GameObject:
   - component: {fileID: 4187862065447586384}
   - component: {fileID: 3727344005591935094}
   m_Layer: 8
-  m_Name: TurretBodyPart
+  m_Name: BodyPart(Scaned)
   m_TagString: TankBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5952,7 +5952,7 @@ GameObject:
   - component: {fileID: 80811872606723157}
   - component: {fileID: 4796034066552688384}
   m_Layer: 8
-  m_Name: HullBodyPart
+  m_Name: BodyPart(Scaned)
   m_TagString: TankBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6035,7 +6035,7 @@ GameObject:
   - component: {fileID: 3212042755808230414}
   - component: {fileID: 5009977101321007766}
   m_Layer: 8
-  m_Name: HullBodyPart
+  m_Name: BodyPart(Scaned)
   m_TagString: TankBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6167,7 +6167,7 @@ GameObject:
   - component: {fileID: 7454171740336188126}
   - component: {fileID: 291565831115970543}
   m_Layer: 8
-  m_Name: TurretBodyPart
+  m_Name: BodyPart(Scaned)
   m_TagString: TankBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6292,7 +6292,7 @@ GameObject:
   - component: {fileID: 992891623770686572}
   - component: {fileID: 3864965751623534954}
   m_Layer: 8
-  m_Name: Cylinder (1)
+  m_Name: BodyPart(Scaned)
   m_TagString: TankBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6375,7 +6375,7 @@ GameObject:
   - component: {fileID: 1430617767389499303}
   - component: {fileID: 6593928914351001640}
   m_Layer: 8
-  m_Name: HullBodyPart
+  m_Name: BodyPart(Scaned)
   m_TagString: TankBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6458,7 +6458,7 @@ GameObject:
   - component: {fileID: 6343031383000483578}
   - component: {fileID: 5049553226697273497}
   m_Layer: 8
-  m_Name: TurretBodyPart
+  m_Name: BodyPart(Scaned)
   m_TagString: TankBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6541,7 +6541,7 @@ GameObject:
   - component: {fileID: 7853578871388572473}
   - component: {fileID: 3922670484362228236}
   m_Layer: 8
-  m_Name: Cube (13)
+  m_Name: BodyPart(Scaned)
   m_TagString: TankBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6683,7 +6683,7 @@ GameObject:
   - component: {fileID: 2208203665682198339}
   - component: {fileID: 8855344144782500559}
   m_Layer: 8
-  m_Name: Cylinder (6)
+  m_Name: BodyPart(Scaned)
   m_TagString: TankBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7129,7 +7129,7 @@ GameObject:
   - component: {fileID: 6048506346308839871}
   - component: {fileID: 8726934194149229561}
   m_Layer: 8
-  m_Name: Cube (12)
+  m_Name: BodyPart(Scaned)
   m_TagString: TankBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7286,7 +7286,7 @@ GameObject:
   - component: {fileID: 1764107499}
   - component: {fileID: -3539836920427371163}
   m_Layer: 7
-  m_Name: bot_1
+  m_Name: bot_tank_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7552,26 +7552,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf45d81a164ecb4488dc505c4d8bbd7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _flashTime: 0.125
-  _damageSnd: {fileID: 11400000, guid: 2e984c74b9f232843a87d2fc9ace1a84, type: 2}
-  _explosionSnd: {fileID: 11400000, guid: 19dc1f503dba3f5439321de967b260b8, type: 2}
-  _audioEmitter: {fileID: 1764107499}
-  _damagedSteps:
-  - DamagedModules:
+  damageSnd: {fileID: 11400000, guid: 2e984c74b9f232843a87d2fc9ace1a84, type: 2}
+  explosionSnd: {fileID: 11400000, guid: 19dc1f503dba3f5439321de967b260b8, type: 2}
+  audioEmitter: {fileID: 1764107499}
+  flashTime: 0.125
+  damagedParticlesToAdd: 1
+  damagedSteps:
+  - damagedModules:
     - {fileID: 5271535668701371908}
     - {fileID: 3949403615927381236}
-    DamagedStepAssets: {fileID: 11400000, guid: 3e518c9efebb8b24c915a9248e63fe74, type: 2}
+    damagedStepAssets: {fileID: 11400000, guid: 3e518c9efebb8b24c915a9248e63fe74, type: 2}
     threshold: 150
-  - DamagedModules:
+  - damagedModules:
     - {fileID: 486637472465426729}
     - {fileID: 6557130755837455114}
-    DamagedStepAssets: {fileID: 11400000, guid: 66748a6a6e9d6d64fb7bd4f1af8f1738, type: 2}
+    damagedStepAssets: {fileID: 11400000, guid: 66748a6a6e9d6d64fb7bd4f1af8f1738, type: 2}
     threshold: 100
-  - DamagedModules:
+  - damagedModules:
     - {fileID: 5427013426112117116}
     - {fileID: 6835846386845421018}
-    DamagedStepAssets: {fileID: 11400000, guid: d11f3a2a415691f4ea05a201dd2b0427, type: 2}
+    damagedStepAssets: {fileID: 11400000, guid: d11f3a2a415691f4ea05a201dd2b0427, type: 2}
     threshold: 50
+  smokeDamagedParticlesPoints:
+  - {fileID: 2696973903384278152}
+  - {fileID: 2638254610177479536}
+  - {fileID: 476738980996147830}
+  - {fileID: 8649783711871889664}
+  hitParticlesPoints:
+  - {fileID: 3741917921858113293}
+  visualParent: {fileID: 6674640751963955606}
   tankBodyParts:
   - {fileID: 1061760632338794093}
   - {fileID: 8535717189312652279}
@@ -7594,7 +7603,6 @@ MonoBehaviour:
   - {fileID: 5009977101321007766}
   - {fileID: 1796936225154879190}
   - {fileID: 5097202495088885741}
-  - {fileID: 7689909405210124697}
   - {fileID: 9219550490933605293}
   - {fileID: 4952535196827429865}
   - {fileID: 4946321924361810115}
@@ -7616,14 +7624,20 @@ MonoBehaviour:
   - {fileID: 3495371464528195753}
   - {fileID: 2681039842962108050}
   - {fileID: 2420653041200187553}
-  damagedParticlesToAdd: 1
-  damagedParticlesPoints:
-  - {fileID: 2696973903384278152}
-  - {fileID: 2638254610177479536}
-  - {fileID: 476738980996147830}
-  - {fileID: 8649783711871889664}
-  hull: {fileID: 8452678108642866672}
-  turret: {fileID: 1185371072849741531}
+  - {fileID: 5157147277031655608}
+  - {fileID: 1530878612230279886}
+  - {fileID: 3874967732628125507}
+  - {fileID: 4239119426252224309}
+  - {fileID: 7649495822406733547}
+  - {fileID: 3929550143545047979}
+  - {fileID: 8855344144782500559}
+  - {fileID: 6657011837413218181}
+  - {fileID: 2236790533431129799}
+  - {fileID: 7271480341841215398}
+  - {fileID: 8726934194149229561}
+  - {fileID: 3864965751623534954}
+  - {fileID: 1609720679668789583}
+  - {fileID: 3922670484362228236}
 --- !u!114 &1764107499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7767,7 +7781,7 @@ GameObject:
   - component: {fileID: 4228624995756708112}
   - component: {fileID: 7649495822406733547}
   m_Layer: 8
-  m_Name: Cylinder (4)
+  m_Name: BodyPart(Scaned)
   m_TagString: TankBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7882,7 +7896,7 @@ GameObject:
   - component: {fileID: 4997085655146115023}
   - component: {fileID: 1094892899662034740}
   m_Layer: 8
-  m_Name: TurretBodyPart
+  m_Name: BodyPart(Scaned)
   m_TagString: TankBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7965,7 +7979,7 @@ GameObject:
   - component: {fileID: 2083054578654500050}
   - component: {fileID: 4452771776749868784}
   m_Layer: 8
-  m_Name: HullBodyPart
+  m_Name: BodyPart(Scaned)
   m_TagString: TankBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8163,7 +8177,7 @@ GameObject:
   - component: {fileID: 3844907932539637168}
   - component: {fileID: 9219550490933605293}
   m_Layer: 8
-  m_Name: HullBodyPart
+  m_Name: BodyPart(Scaned)
   m_TagString: TankBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8246,7 +8260,7 @@ GameObject:
   - component: {fileID: 628140958377381547}
   - component: {fileID: 604754578869530217}
   m_Layer: 8
-  m_Name: TurretBodyPart
+  m_Name: BodyPart(Scaned)
   m_TagString: TankBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8526,7 +8540,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6981983066699957492, guid: 86bd09311ff04004d9a475344b051bae, type: 3}
       propertyPath: m_Name
-      value: TurretBodyPart
+      value: BodyPart(Scaned)
       objectReference: {fileID: 0}
     - target: {fileID: 8904131417722953992, guid: 86bd09311ff04004d9a475344b051bae, type: 3}
       propertyPath: _infiniteAmmo
@@ -8833,7 +8847,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6981983066699957492, guid: 86bd09311ff04004d9a475344b051bae, type: 3}
       propertyPath: m_Name
-      value: TurretBodyPart
+      value: BodyPart(Scaned)
       objectReference: {fileID: 0}
     - target: {fileID: 8904131417722953992, guid: 86bd09311ff04004d9a475344b051bae, type: 3}
       propertyPath: _infiniteAmmo
@@ -8927,7 +8941,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6981983066699957492, guid: 86bd09311ff04004d9a475344b051bae, type: 3}
       propertyPath: m_Name
-      value: TurretBodyPart
+      value: BodyPart(Scaned)
       objectReference: {fileID: 0}
     - target: {fileID: 8904131417722953992, guid: 86bd09311ff04004d9a475344b051bae, type: 3}
       propertyPath: _infiniteAmmo
