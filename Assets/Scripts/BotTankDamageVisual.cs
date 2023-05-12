@@ -11,59 +11,32 @@ using Random = UnityEngine.Random;
 using UnityEditor;
 #endif
 
-public class BotTankDamageVisual : MonoBehaviour
+public partial class BotTankDamageVisual : MonoBehaviour
 {
-	[Serializable]
-	private class DamagedStepData
-	{
-		public ParticleSystem[] DamagedParticles { get; set; }
-		public ParticleSystem[] HitParticles { get; set; }
-	    
-		public GameObject[] DamagedModules;
-		public TankDamageStepAssetsSO DamagedStepAssets;
-		public float threshold;
-
-		public void SetDamageStepVisualsVisible(bool areVisible)
-		{
-			foreach (var particleSystem in DamagedParticles)
-			{
-				if (particleSystem != null)
-				{
-					particleSystem.gameObject.SetActive(areVisible);
-				}
-			}
-
-			foreach (GameObject gmObj in DamagedModules)
-			{
-				if (gmObj != null)
-				{
-					gmObj.SetActive(areVisible);
-				}
-			}
-		}
-	}
+	[Header("Audio config")]
+	[FormerlySerializedAs("_damageSnd")]
+    [SerializeField] private AudioClipData damageSnd;
 	
-	[Header("Helpers")]
-    [SerializeField] private float _flashTime = 0.1f;
-
-	[Header("Audio")]
-    [SerializeField] private AudioClipData _damageSnd;
-    [SerializeField] private AudioClipData _explosionSnd;
-    [SerializeField] private AudioEmitter _audioEmitter;
+    [FormerlySerializedAs("_explosionSnd")]
+    [SerializeField] private AudioClipData explosionSnd;
     
-    [SerializeField] private DamagedStepData[] _damagedSteps;
+    [FormerlySerializedAs("_audioEmitter")]
+    [SerializeField] private AudioEmitter audioEmitter;
     
+    [Header("Damage visuals config")]
+    [SerializeField] private float flashTime = 0.1f;
+    [SerializeField] private int damagedParticlesToAdd = 1;
+    
+    [SerializeField] private DamagedStepData[] damagedSteps;
+    [SerializeField] private Transform[] smokeDamagedParticlesPoints;
+	[SerializeField] private Transform[] hitParticlesPoints;
+	
+	[Header("Tank body parts references")]
+    public Transform visualParent;
     [SerializeField] public MeshRenderer[] tankBodyParts;
     
-    [SerializeField] private int damagedParticlesToAdd = 2;
-    	
-	[SerializeField] private Transform[] damagedParticlesPoints;
-    
-    public Transform hull;
-    public Transform turret;
-    
-    private Transform[] _damagedParticlesPointsSelected;
-    
+    private Transform[] _smokeDamagedParticlesPointsSelected;
+
     private int _previousRuntimeDamagedStep;
     private int _currentRuntimeDamagedStep;
 
@@ -75,65 +48,97 @@ public class BotTankDamageVisual : MonoBehaviour
 
     public void Initialize(float maxTankHealth)
     {
-	    if (!_initialized)
-	    {
-		    _initialized = true;
-	    }
-	    else
-	    {
-		    return;
-	    }
-		    
 	    _maxHealth = maxTankHealth;
 	    _currentHealth = maxTankHealth;
 	    _previousHealth = maxTankHealth;
 	    
-	    _damagedSteps = _damagedSteps.OrderBy(step => step.threshold).ToArray();
+	    if (_initialized) // If this is an object reused by Photon Object Pool and not a new one, we want another kind of init
+	    {
+		    ReInit();
+		    return;
+	    }
 	    
-	    _currentRuntimeDamagedStep = _damagedSteps.Length - 1;
-        _previousRuntimeDamagedStep = _damagedSteps.Length - 1;
+		_initialized = true;
+		damagedSteps = damagedSteps.OrderBy(step => step.threshold).ToArray();
+	    
+	    _currentRuntimeDamagedStep = damagedSteps.Length - 1;
+        _previousRuntimeDamagedStep = damagedSteps.Length - 1;
         	    
-	    InitParticlesSelectedPoints();
-	    InitDamagedParticlesInstances();
+	    InitDamagedSmokeParticlesSelectedPoints();
+	    InitDamagedSmokeParticlesInstances();
+	    InitDamagedHitParticlesInstances();
 
+	    CalculateCurrentDamagedStep();
 	    UpdateVisualsByCurrentDamagedStep();
     }
-    
-    private void InitParticlesSelectedPoints()
+
+    private void ReInit()
     {
-	    _damagedParticlesPointsSelected = new Transform[damagedParticlesToAdd];
-	    for (int index = 0, particlesAdded = 0; index < damagedParticlesPoints.Length && particlesAdded < damagedParticlesToAdd; index++)
+	    _currentRuntimeDamagedStep = damagedSteps.Length - 1;
+	    _previousRuntimeDamagedStep = damagedSteps.Length - 1;
+	    
+	    CalculateCurrentDamagedStep();
+	    UpdateVisualsByCurrentDamagedStep();
+    }
+
+    private void InitDamagedHitParticlesInstances()
+    {
+	    
+	    for (int i = 0; i < damagedSteps.Length; i++)
+	    {
+		    damagedSteps[i].HitParticles = new ParticleSystem[hitParticlesPoints.Length];
+		    
+		    for (int j = 0; j < damagedSteps[i].HitParticles.Length; j++)
+		    {
+			    if (damagedSteps[i].damagedStepAssets.HitParticles != null)
+			    {
+				    damagedSteps[i].HitParticles[j] = Instantiate(damagedSteps[i].damagedStepAssets.HitParticles, 
+					    hitParticlesPoints[j].position,
+					    hitParticlesPoints[j].rotation,
+					    hitParticlesPoints[j].parent
+				    ).GetComponent<ParticleSystem>();
+				    
+				    damagedSteps[i].HitParticles[j].gameObject.name = "HitParticle(DamageStepIndex: " + i + ")"; 
+			    }
+		    }
+	    }
+    }
+    
+    private void InitDamagedSmokeParticlesSelectedPoints()
+    {
+	    _smokeDamagedParticlesPointsSelected = new Transform[damagedParticlesToAdd];
+	    for (int index = 0, particlesAdded = 0; index < smokeDamagedParticlesPoints.Length && particlesAdded < damagedParticlesToAdd; index++)
 	    {
 		    if (Random.Range(0, 2) != 0) // Random bool is not false
 		    {
 			    particlesAdded++;
-			    _damagedParticlesPointsSelected[particlesAdded - 1] = damagedParticlesPoints[index];
+			    _smokeDamagedParticlesPointsSelected[particlesAdded - 1] = smokeDamagedParticlesPoints[index];
 		    }
-		    else if ((damagedParticlesPoints.Length - index) <= damagedParticlesToAdd && particlesAdded < damagedParticlesToAdd)
+		    else if ((smokeDamagedParticlesPoints.Length - index) <= damagedParticlesToAdd && particlesAdded < damagedParticlesToAdd)
 		    {
 			    particlesAdded++;
-			    _damagedParticlesPointsSelected[particlesAdded - 1] = damagedParticlesPoints[index];
+			    _smokeDamagedParticlesPointsSelected[particlesAdded - 1] = smokeDamagedParticlesPoints[index];
 		    }
 	    }   
     }
     
-    private void InitDamagedParticlesInstances()
+    private void InitDamagedSmokeParticlesInstances()
     {
-	    for (int i = 0; i < _damagedSteps.Length; i++)
+	    for (int i = 0; i < damagedSteps.Length; i++)
 	    {
-		    _damagedSteps[i].DamagedParticles = new ParticleSystem[damagedParticlesToAdd];
+		    damagedSteps[i].DamagedParticles = new ParticleSystem[damagedParticlesToAdd];
 		    
-		    for (int j = 0; j < _damagedParticlesPointsSelected.Length; j++)
+		    for (int j = 0; j < _smokeDamagedParticlesPointsSelected.Length; j++)
 		    {
-			    if (_damagedSteps[i].DamagedStepAssets.SmokeDamageParticles != null)
+			    if (damagedSteps[i].damagedStepAssets.SmokeDamageParticles != null)
 			    {
-				    _damagedSteps[i].DamagedParticles[j] = Instantiate(_damagedSteps[i].DamagedStepAssets.SmokeDamageParticles, 
-					    _damagedParticlesPointsSelected[j].position,
+				    damagedSteps[i].DamagedParticles[j] = Instantiate(damagedSteps[i].damagedStepAssets.SmokeDamageParticles, 
+					    _smokeDamagedParticlesPointsSelected[j].position,
 					    Quaternion.identity,
-					    _damagedParticlesPointsSelected[j].parent
+					    _smokeDamagedParticlesPointsSelected[j].parent
 				    ).GetComponent<ParticleSystem>();
 				    
-				    _damagedSteps[i].DamagedParticles[j].gameObject.name = "DamageParticle(DamageStepIndex: " + i + ")"; 
+				    damagedSteps[i].DamagedParticles[j].gameObject.name = "DamageParticle(DamageStepIndex: " + i + ")"; 
 			    }
 		    }
 	    }
@@ -149,36 +154,42 @@ public class BotTankDamageVisual : MonoBehaviour
 
     public void OnDeath()
     {
-    	_audioEmitter.PlayOneShot(_explosionSnd);
+    	audioEmitter.PlayOneShot(explosionSnd);
+        damagedSteps[_currentRuntimeDamagedStep].SetDamageStepVisualsVisible(false);
     }
     
     public void OnDamaged(float damage, bool isDead)
     {
-	    _currentHealth -= damage;
-	    _currentHealth = Mathf.Clamp(_currentHealth, 0, _maxHealth);
-	    
 	    if (!isDead)
 	    {
-		    if (HealthHasChanged())
-		    {
-			    CalculateCurrentDamagedStep();
+		    StartCoroutine(Flash());
+		    audioEmitter.PlayOneShot(damageSnd);
+	    }
+    }
+    
+    public void CheckHealth(int life)
+    {
+	    _currentHealth = life;
+	    _currentHealth = Mathf.Clamp(_currentHealth, 0, _maxHealth);
+	    
+	    if (HealthHasChanged())
+	    {
+		    CalculateCurrentDamagedStep();
 			    
-			    if (DamagedStepHasChanged())
-			    {
-				    UpdateVisualsByCurrentDamagedStep();
-			    }
-
-			    StartCoroutine(Flash());
-			    _audioEmitter.PlayOneShot(_damageSnd);
+		    if (DamagedStepHasChanged())
+		    {
+			    UpdateVisualsByCurrentDamagedStep();
 		    }
+
+		    StartCoroutine(Flash());
 	    }
     }
 
     private void UpdateVisualsByCurrentDamagedStep()
     {
-	    for (int i = 0; i < _damagedSteps.Length; i++)
+	    for (int i = 0; i < damagedSteps.Length; i++)
 	    {
-		    _damagedSteps[i].SetDamageStepVisualsVisible(i == _currentRuntimeDamagedStep);
+		    damagedSteps[i].SetDamageStepVisualsVisible(i == _currentRuntimeDamagedStep);
 	    }
     }
     
@@ -207,12 +218,12 @@ public class BotTankDamageVisual : MonoBehaviour
     {
 	    int indexOfHighestThreshold = 0;
 	    float highestThreshold = 0;
-	    for (int i = 0; i < _damagedSteps.Length; i++)
+	    for (int i = 0; i < damagedSteps.Length; i++)
 	    {
-		    if (_damagedSteps[i].threshold > highestThreshold && _currentHealth > _damagedSteps[i].threshold)
+		    if (damagedSteps[i].threshold > highestThreshold && _currentHealth > damagedSteps[i].threshold)
 		    {
 			    indexOfHighestThreshold = i;
-			    highestThreshold = _damagedSteps[i].threshold;
+			    highestThreshold = damagedSteps[i].threshold;
 		    }
 	    }
 
@@ -226,7 +237,7 @@ public class BotTankDamageVisual : MonoBehaviour
         {
 	        tankBodyPart.material.SetFloat("_Transition", 1f);
         }
-        yield return new WaitForSeconds(_flashTime);
+        yield return new WaitForSeconds(flashTime);
         foreach (var tankBodyPart in tankBodyParts)
         {
 	        tankBodyPart.material.SetFloat("_Transition", 0f);
@@ -235,12 +246,19 @@ public class BotTankDamageVisual : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-	    Gizmos.color = Color.red;
-	    if (damagedParticlesPoints != null)
+	    
+	    if (smokeDamagedParticlesPoints != null)
 	    {
-		    for (int i = 0; i < damagedParticlesPoints.Length; i++)
+		    Gizmos.color = Color.red;
+		    for (int i = 0; i < smokeDamagedParticlesPoints.Length; i++)
 		    {
-			    Gizmos.DrawSphere(damagedParticlesPoints[i].position, 0.1f);
+			    Gizmos.DrawSphere(smokeDamagedParticlesPoints[i].position, 0.075f);
+		    }
+		    
+		    Gizmos.color = Color.blue;
+		    for (int i = 0; i < hitParticlesPoints.Length; i++)
+		    {
+			    Gizmos.DrawSphere(hitParticlesPoints[i].position, 0.075f);
 		    }
 	    } 
     }
@@ -265,21 +283,13 @@ class BotTankDamageVisualEditor : Editor
         {
 	        _tankBodyParts = new List<MeshRenderer>();
 
-	        foreach (var meshRenderer in sourceScript.hull.GetComponentsInChildren<MeshRenderer>())
-	        {
-		        if (meshRenderer.gameObject.CompareTag("TankBodyPart"))
-		        {
-			        _tankBodyParts.Add(meshRenderer);
-			        meshRenderer.gameObject.name = "HullBodyPart";
-		        }
-	        }
 	        
-	        foreach (var meshRenderer in sourceScript.turret.GetComponentsInChildren<MeshRenderer>())
+	        foreach (var meshRenderer in sourceScript.visualParent.GetComponentsInChildren<MeshRenderer>())
 	        {
 		        if (meshRenderer.gameObject.CompareTag("TankBodyPart"))
 		        {
 			        _tankBodyParts.Add(meshRenderer);
-			        meshRenderer.gameObject.name = "TurretBodyPart";
+			        meshRenderer.gameObject.name = "BodyPart(Scaned)";
 		        }
 	        }
 

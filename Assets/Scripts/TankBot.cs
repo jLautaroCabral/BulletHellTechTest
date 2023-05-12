@@ -100,6 +100,8 @@ public class TankBot : NetworkBehaviour, ICanTakeDamage, ITankUnit
         _visualParent.gameObject.SetActive(BotState == UnitState.Active);
         _collider.enabled = BotState != UnitState.Dead && BotState == UnitState.Active;
         _hitBoxRoot.HitboxRootActive = BotState == UnitState.Active;
+        
+        _damageVisuals.CheckHealth(life);
     }
 
     public override void FixedUpdateNetwork()
@@ -151,6 +153,7 @@ public class TankBot : NetworkBehaviour, ICanTakeDamage, ITankUnit
         }
     }
 
+    
     public void ApplyDamage(Vector3 impulse, byte damage, PlayerRef source)
     {
         if (!isActivated)
