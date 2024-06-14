@@ -79,7 +79,7 @@ namespace FusionExamples.Tanknarok
 		{
 			if (GateUI(_uiRoom))
 			{
-		    FusionLauncher launcher = FindObjectOfType<FusionLauncher>();
+				FusionLauncher launcher = FindObjectOfType<FusionLauncher>();
 				if (launcher == null)
 					launcher = new GameObject("Launcher").AddComponent<FusionLauncher>();
 

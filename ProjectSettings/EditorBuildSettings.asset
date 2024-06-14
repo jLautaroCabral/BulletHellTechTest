@@ -6,16 +6,16 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainScene.unity
+    path: Assets/TT_MyBulletHellGame/Scenes/MainScene.unity
     guid: 019b7222ce6240441baf14bbbcec3dc3
   - enabled: 1
-    path: Assets/Scenes/Lobby.unity
+    path: Assets/TT_MyBulletHellGame/Scenes/Lobby.unity
     guid: f6dee34d25821d340b159038d8ddb80d
   - enabled: 1
-    path: Assets/Scenes/Level1.unity
+    path: Assets/TT_MyBulletHellGame/Scenes/Level1.unity
     guid: f362993893a61b64aa103812c54d87a5
   - enabled: 1
-    path: Assets/Scenes/Level2.unity
+    path: Assets/TT_MyBulletHellGame/Scenes/Level2.unity
     guid: 1d96e111341ef4b42b485acc5743a6e0
   - enabled: 0
     path: Assets/TanknarokSample/Scenes/MainScene.unity
